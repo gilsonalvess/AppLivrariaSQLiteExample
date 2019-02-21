@@ -8,6 +8,7 @@ public class Livro implements Serializable {
     String titulo;
     String autor;
     String editora;
+    String imagem;
 
     public Livro() {
     }
@@ -17,6 +18,14 @@ public class Livro implements Serializable {
         this.titulo = titulo;
         this.autor = autor;
         this.editora = editora;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
     }
 
     public String get_id() {

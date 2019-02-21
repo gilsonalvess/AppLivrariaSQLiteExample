@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -43,9 +44,14 @@ public class LivroAdapter extends BaseAdapter {
        // TODO adionar atributo imagem
         TextView titulo = (TextView) rowView.findViewById(R.id.id_titulo_item);
         TextView autor = (TextView) rowView.findViewById(R.id.id_autor_item);
+        TextView editora = (TextView) rowView.findViewById(R.id.id_editora_item);
+        ImageView imagem = (ImageView) rowView.findViewById(R.id.id_img_livro);
 
         titulo.setText(livro.getTitulo());
         autor.setText(livro.getAutor());
+        editora.setText(livro.getEditora());
+        //int idImagem = activity.getResources().getIdentifier(livro.getImagem(), "drawable", activity.getPackageName());
+        imagem.setImageResource(R.drawable.icon_livro_capa);
 
         return rowView;
     }
