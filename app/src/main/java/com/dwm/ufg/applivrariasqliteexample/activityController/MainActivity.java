@@ -1,16 +1,19 @@
-package com.dwm.ufg.applivrariasqliteexample;
+package com.dwm.ufg.applivrariasqliteexample.activityController;
 
 import android.content.Intent;
-import android.os.Parcelable;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import java.io.Serializable;
+import com.dwm.ufg.applivrariasqliteexample.R;
+import com.dwm.ufg.applivrariasqliteexample.model.Livro;
+import com.dwm.ufg.applivrariasqliteexample.repository.LivrariaDAO;
+import com.dwm.ufg.applivrariasqliteexample.services.ConstrutorBaseInicial;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("App Livraria");
         }
+        inicializaDados();
         carregaLista();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -32,8 +36,6 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-
-
     }
 
     @Override
@@ -67,5 +69,21 @@ public class MainActivity extends AppCompatActivity {
                 editar(view, position, listaDelivros);
             }
         });
+    }
+
+    protected void inicializaDados(){
+        LivrariaDAO livrariaDAO = new LivrariaDAO(this);
+        ArrayList<Livro> livros = ConstrutorBaseInicial.inicializeBD();
+        if(livrariaDAO.carregarDados().size() == 0){
+            for(Livro livro : livros){
+                livrariaDAO.insereDados(
+                        livro.getTitulo(),
+                        livro.getAutor(),
+                        livro.getEditora(),
+                        livro.getValor(),
+                        livro.getImagem()
+                );
+            }
+        }
     }
 }

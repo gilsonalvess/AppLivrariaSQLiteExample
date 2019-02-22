@@ -1,4 +1,4 @@
-package com.dwm.ufg.applivrariasqliteexample;
+package com.dwm.ufg.applivrariasqliteexample.repository;
 
 
 import android.content.Context;
@@ -14,6 +14,8 @@ public class CreateDB extends SQLiteOpenHelper {
     public static final String TITULO = "titulo";
     public static final String AUTOR = "autor";
     public static final String EDITORA = "editora";
+    public static final String VALOR = "valor";
+    public static final String IMAGEM = "imagem";
     public static final int VERSAO = 1;
 
     public CreateDB(Context context) {
@@ -27,7 +29,10 @@ public class CreateDB extends SQLiteOpenHelper {
                 + ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + TITULO + " TEXT,"
                 + AUTOR + " TEXT,"
-                + EDITORA + " TEXT" + ")";
+                + EDITORA + " TEXT,"
+                + VALOR + " REAL,"
+                + IMAGEM + " TEXT" +
+                ")";
 
         db.execSQL(sql);
     }

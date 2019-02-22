@@ -1,4 +1,4 @@
-package com.dwm.ufg.applivrariasqliteexample;
+package com.dwm.ufg.applivrariasqliteexample.model;
 
 import java.io.Serializable;
 
@@ -8,16 +8,18 @@ public class Livro implements Serializable {
     String titulo;
     String autor;
     String editora;
+    double valor = 0.0;
     String imagem;
 
     public Livro() {
     }
 
-    public Livro(String _id, String titulo, String autor, String editora) {
-        this._id = _id;
+    public Livro(String titulo, String autor, String editora, double valor, String imagem) {
         this.titulo = titulo;
         this.autor = autor;
         this.editora = editora;
+        this.valor = valor;
+        this.imagem = imagem;
     }
 
     public String getImagem() {
@@ -50,6 +52,14 @@ public class Livro implements Serializable {
 
     public void setAutor(String autor) {
         this.autor = autor;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
     }
 
     public String getEditora() {

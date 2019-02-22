@@ -1,0 +1,30 @@
+[
+  {
+    "titulo": "Android Essencial",
+    "autor": "Ricardo R. Lecheta",
+    "editora": "Navatec",
+    "valor": 59.90,
+    "imagem": "img_livro_android_1"
+  },
+  {
+    "titulo": "Android Essencial com Kotlin",
+    "autor": "Ricardo R. Lecheta",
+    "editora": "Navatec",
+    "valor": 85.90,
+    "imagem": "img_livro_android_2"
+  },
+  {
+    "titulo": "Programando com Kotlin",
+    "autor": "Stephen Samuel",
+    "editora": "Navatec",
+    "valor": 79.90,
+    "imagem": "img_livro_android_3"
+  },
+  {
+    "titulo": "Kotlin com Android",
+    "autor": "Kassiano Resende",
+    "editora": "Casa do Código",
+    "valor": 49.99,
+    "imagem": "img_livro_android_4"
+  }
+]

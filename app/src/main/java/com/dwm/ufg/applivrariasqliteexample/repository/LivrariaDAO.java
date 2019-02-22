@@ -1,13 +1,13 @@
-package com.dwm.ufg.applivrariasqliteexample;
+package com.dwm.ufg.applivrariasqliteexample.repository;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.widget.ArrayAdapter;
+
+import com.dwm.ufg.applivrariasqliteexample.model.Livro;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class LivrariaDAO {
 
@@ -19,7 +19,7 @@ public class LivrariaDAO {
     }
 
     //Insere dados
-    public String insereDados(String titulo, String autor, String editora) {
+    public String insereDados(String titulo, String autor, String editora, double valor, String imagem) {
         ContentValues valores;
         long resultado;
 
@@ -29,6 +29,8 @@ public class LivrariaDAO {
         valores.put(CreateDB.TITULO, titulo);
         valores.put(CreateDB.AUTOR, autor);
         valores.put(CreateDB.EDITORA, editora);
+        valores.put(CreateDB.VALOR, valor);
+        valores.put(CreateDB.IMAGEM, imagem);
 
         resultado = db.insert(CreateDB.TABELA, null, valores);
         db.close();
@@ -57,6 +59,8 @@ public class LivrariaDAO {
                 livro.setTitulo(cursor.getString(1));
                 livro.setAutor(cursor.getString(2));
                 livro.setEditora(cursor.getString(3));
+                livro.setValor(cursor.getDouble(4));
+                livro.setImagem(cursor.getString(5));
                 listaDeLivros.add(livro);
 
             } while (cursor.moveToNext());
@@ -109,6 +113,8 @@ public class LivrariaDAO {
         valores.put(CreateDB.TITULO, livro.getTitulo());
         valores.put(CreateDB.AUTOR, livro.getAutor());
         valores.put(CreateDB.EDITORA, livro.getEditora());
+        valores.put(CreateDB.VALOR, livro.getValor());
+        valores.put(CreateDB.IMAGEM, livro.getImagem());
 
         // atualiza linha
         resultado = db.update(CreateDB.TABELA, valores,
